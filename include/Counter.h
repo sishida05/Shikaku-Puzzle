@@ -15,6 +15,7 @@ public:
     void decrementBy(int n) { value -= n; }
     void decrement() { value--; }
     void reset() { value = 0; }
+    void incrementBy(int n) { value += n; }
 };
  
 #endif
