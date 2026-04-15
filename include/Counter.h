@@ -12,6 +12,7 @@ public:
     int getValue() const { return value; }
  
     void increment() { value++; }
+    void decrementBy(int n) { value -= n; }
     void decrement() { value--; }
     void reset() { value = 0; }
 };
