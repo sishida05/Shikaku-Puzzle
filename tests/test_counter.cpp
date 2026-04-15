@@ -35,9 +35,20 @@ void test_reset() {
     assert(c.getValue() == 0);
     std::cout << "PASSED: test_reset\n";
 }
+
+void test_increment_by() {
+    Counter c;
+    c.incrementBy(5);
+    assert(c.getValue() == 5);
+    c.incrementBy(3);
+    assert(c.getValue() == 8);
+    std::cout << "PASSED: test_increment_by\n";
+}
+
  
 int main() {
     std::cout << "Running Counter tests...\n\n";
+    test_increment_by();
     test_initial_value();
     test_increment();
     test_decrement();

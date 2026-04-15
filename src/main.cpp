@@ -8,5 +8,7 @@ int main() {
     c.increment();
     c.increment();
     std::cout << "Counter value: " << c.getValue() << std::endl;
+
+    
     return 0;
 }
