@@ -1,7 +1,8 @@
-cmake_minimum_required(VERSION 3.10)
-project(CounterDemo)
+cmake_minimum_required(VERSION 3.20)
+project(Shikaku)
  
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
  
 # Enable testing
 enable_testing()
@@ -17,3 +18,4 @@ add_executable(run_tests tests/test_counter.cpp)
  
 # Register with CTest
 add_test(NAME CounterTests COMMAND run_tests)
+
