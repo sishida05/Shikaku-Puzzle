@@ -2,7 +2,7 @@
 
 class Rectangle {
 
-public:
+protected:
     // starting row
     int startRow;
     
@@ -15,6 +15,7 @@ public:
     // width of rectangle
     int width;
 
+public:
     // rectangle constructor
     Rectangle(int r, int c, int w, int h);
 

@@ -2,21 +2,26 @@
 
 class Cell {
 
-public:
-    // the number within certain cells
-    int value;
-    
+protected:
     // whether or not a given cell contains a number
     bool isNum;
     
     // what is displayed to the player
-    char displayNum;
+    char value;
 
+    // the number that a given cell is part of the solution for
+    int groupNum1;
+
+    // differentiates duplicate group numbers i.e (group 4, 1st 4), (group 3, fourth 3), etc.
+    int groupNum2;
+
+public:
     // Blank cell constructor
-    cell() {
-        value = 0;
-        isNum = false;
-        displayNum = ' ';
-    }
+    Cell();
 
+    // gets value
+    char getValue() const;
+
+    // sets value
+    void setValue(char v);
 };

@@ -6,6 +6,7 @@
 class Game {
 
 private:
+
     // contains a board
     Board board;
 
@@ -17,7 +18,7 @@ private:
 
 public:
     // creates a game with a specified board size and random rectangles and cells
-    Game(int rows, int cols);
+    Game(int r, int c);
 
     // starts the game
     void start();
