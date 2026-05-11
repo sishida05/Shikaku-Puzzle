@@ -6,69 +6,26 @@ using namespace std;
 
 int main() {
 
-    // const int cellSize = 50;
+    // Create a 200x200 window titled "SFML works!"
+    sf::RenderWindow window(sf::VideoMode({200, 200}), "SFML works!");
 
-    // Board board(10, 10);
+    // Create a green circle shape with a radius of 100
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::Green);
 
-    // sf::RenderWindow window(
-    //     sf::VideoMode(board.getCols() * cellSize,
-    //                   board.getRows() * cellSize),
-    //     "Board UI"
-    // );
+    // Main application loop
+    while (window.isOpen()) {
 
-    // sf::Font font;
-    // if (!font.loadFromFile("arial.ttf")) return -1;
+        // Clear the window with a default color (black)
+        window.clear();
 
-    // while (window.isOpen()) {
-    //     sf::Event event;
-    //     while (window.pollEvent(event)) {
-    //         if (event.type == sf::Event::Closed)
-    //             window.close();
+        // Draw the circle shape
+        window.draw(shape);
 
-    //         // 🖱️ Click interaction
-    //         if (event.type == sf::Event::MouseButtonPressed) {
-    //             int col = event.mouseButton.x / cellSize;
-    //             int row = event.mouseButton.y / cellSize;
+        // Display the contents of the window
+        window.display();
+    }
 
-    //             if (row < board.getRows() && col < board.getCols()) {
-    //                 board.getCell(row, col).setValue('X');
-    //             }
-    //         }
-    //     }
-
-    //     window.clear(sf::Color::Black);
-
-    //     for (int r = 0; r < board.getRows(); r++) {
-    //         for (int c = 0; c < board.getCols(); c++) {
-
-    //             // Draw square
-    //             sf::RectangleShape cell(sf::Vector2f(cellSize, cellSize));
-    //             cell.setPosition(c * cellSize, r * cellSize);
-    //             cell.setFillColor(sf::Color::White);
-    //             cell.setOutlineColor(sf::Color::Black);
-    //             cell.setOutlineThickness(1);
-    //             window.draw(cell);
-
-    //             // Draw char from Board
-    //             char ch = board.getCell(r, c).getValue();
-
-    //             sf::Text text;
-    //             text.setFont(font);
-    //             text.setString(std::string(1, ch));
-    //             text.setCharacterSize(24);
-    //             text.setFillColor(sf::Color::Black);
-
-    //             text.setPosition(
-    //                 c * cellSize + cellSize / 3,
-    //                 r * cellSize + cellSize / 5
-    //             );
-
-    //             window.draw(text);
-    //         }
-    //     }
-
-    //     window.display();
-    // }
 
     return 0;
 }
