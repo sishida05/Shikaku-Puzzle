@@ -3,12 +3,13 @@ project(Shikaku)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(SFML_DIR "C:/SFML/lib/cmake/SFML")
 
 # Enable testing
 enable_testing()
 
 # Find SFML
-find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+find_package(SFML 3 COMPONENTS Graphics Window System REQUIRED)
 
 # Include header files
 include_directories(src)
