@@ -9,7 +9,7 @@ set(SFML_DIR "C:/SFML/lib/cmake/SFML")
 enable_testing()
 
 # Find SFML
-find_package(SFML 3.1.0 (32bit) COMPONENTS Graphics Window System REQUIRED)
+find_package(SFML 3.1.0 COMPONENTS Graphics Window System REQUIRED)
 
 # Include header files
 include_directories(src)
