@@ -23,9 +23,6 @@ add_executable(Shikaku-Puzzle
 # Include header files
 target_include_directories(Shikaku-Puzzle PRIVATE src)
 
-# Find SFML
-find_package(SFML 3.1.0 COMPONENTS Graphics Window System REQUIRED)
-
 # Link SFML to main executable
 target_link_libraries(Shikaku-Puzzle PRIVATE
     SFML::Graphics

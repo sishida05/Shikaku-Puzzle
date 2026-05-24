@@ -7,7 +7,7 @@ using namespace std;
 int main() {
 
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Test");
+    sf::RenderWindow window(sf::VideoMode({800, 600}), "Test");
     while (window.isOpen()) {}
 
     // // Create a 200x200 window titled "SFML works!"
