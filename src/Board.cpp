@@ -3,30 +3,22 @@
 using namespace std;
 
     
-Board::Board(int r, int c) {
-    // board constructor
-    this->rows = r;
-    this->cols = c;
-    
+Board::Board() {
+    // Initialize the grid with -1 (indicating empty cells)
+    for (int x = 0; x < GRID_SIZE; x++) {
+        for (int y = 0; y < GRID_SIZE; y++) {
+            grid[x][y] = -1;
+        }
+    }
 }
-void Board::display() const {
-    // display the board to the player
+int Board::get(int x, int y) const {
+    if (x >= 0 && x < GRID_SIZE && y >= 0 && y < GRID_SIZE) {
+        return grid[x][y];
+    }
+    return -1; // Return -1 for out-of-bounds access
 }
-bool Board::isInside(int r, int c) const {
-    // checks if a (r,c) is inside the board
-    return true;
-}
-Cell& Board::getCell(int r, int c) {
-    // gets a given cell
-    return grid[r][c];
-}
-int Board::getRows() const {
-    // gets rows
-    // return this->rows;
-    return 0;
-}
-int Board::getCols() const {
-    // gets columns
-    // return this->cols;
-    return 0;
+void Board::set(int x, int y, int value) {
+    if (x >= 0 && x < GRID_SIZE && y >= 0 && y < GRID_SIZE) {
+        grid[x][y] = value;
+    }
 }
