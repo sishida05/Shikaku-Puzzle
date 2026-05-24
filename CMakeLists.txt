@@ -3,13 +3,13 @@ project(Shikaku)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(SFML_DIR "C:/SFML/lib/cmake/SFML")
+set(SFML_DIR "C:/SFML/SFML-3.1.0/lib/cmake/SFML")
 
 # Enable testing
 enable_testing()
 
 # Find SFML
-find_package(SFML 3.1.0 COMPONENTS Graphics Window System REQUIRED)
+find_package(SFML 3 COMPONENTS Graphics Window System REQUIRED)
 
 # Include header files
 include_directories(src)
@@ -28,9 +28,9 @@ add_executable(counter_app
 
 # Link SFML to main executable
 target_link_libraries(counter_app
-    sfml-graphics
-    sfml-window
-    sfml-system
+    sfml-Graphics
+    sfml-Window
+    sfml-System
 )
 
 # Test executable
@@ -47,9 +47,9 @@ add_executable(run_tests
 
 # Link SFML to tests too (only if tests use SFML)
 target_link_libraries(run_tests
-    sfml-graphics
-    sfml-window
-    sfml-system
+    sfml-Graphics
+    sfml-Window
+    sfml-System
 )
 
 # Register tests
