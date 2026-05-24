@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Game::Game(int r, int c) : board(r, c) {
+Game::Game(int r, int c) : board() {
     // creates a game with a specified board size and random rectangles and cells
 }   
 void Game::start() {
