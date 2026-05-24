@@ -5,6 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(SFML_DIR "C:/SFML/SFML-3.1.0/lib/cmake/SFML")
 
+# Find SFML
+find_package(SFML 3.1.0 COMPONENTS Graphics Window System REQUIRED)
+
 # Main executable
 add_executable(Shikaku-Puzzle
     src/main.cpp
