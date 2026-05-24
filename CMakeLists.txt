@@ -55,3 +55,6 @@ target_link_libraries(counter_app
 # Register tests
 #add_test(NAME CounterTests COMMAND run_tests)
 
+# Include your headers
+target_include_directories(counter_app PRIVATE src)
+
