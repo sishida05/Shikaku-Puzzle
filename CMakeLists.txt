@@ -20,8 +20,11 @@ add_executable(Shikaku-Puzzle
     src/Solver.cpp
 )
 
+# Register tests
+add_test(NAME test_main COMMAND run_tests)
+
 # Enable testing
-#enable_testing()
+enable_testing()
 
 # Include header files
 target_include_directories(Shikaku-Puzzle PRIVATE src)
@@ -34,23 +37,20 @@ target_link_libraries(Shikaku-Puzzle PRIVATE
 )
 
 # Test executable
-#add_executable(run_tests
-#    tests/test_main.cpp
-#    src/Board.cpp
-#    src/Cell.cpp
-#    src/Game.cpp
-#    src/Input.cpp
-#    src/PuzzleGen.cpp
-#    src/Rectangle.cpp
-#    src/Solver.cpp
-#)
+add_executable(run_tests
+    tests/test_main.cpp
+    src/Board.cpp
+    src/Cell.cpp
+    src/Game.cpp
+    src/Input.cpp
+    src/PuzzleGen.cpp
+    src/Rectangle.cpp
+    src/Solver.cpp
+)
 
 # Link SFML to tests too (only if tests use SFML)
-#target_link_libraries(run_tests
-#   SFML::Graphics
-#   SFML::Window
-#   SFML::System
-#)
-
-# Register tests
-#add_test(NAME CounterTests COMMAND run_tests)
+target_link_libraries(run_tests
+   SFML::Graphics
+   SFML::Window
+   SFML::System
+)
