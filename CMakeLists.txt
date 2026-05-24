@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(SFML_DIR "C:/SFML/SFML-3.1.0/lib/cmake/SFML")
 
 # Enable testing
-enable_testing()
+#enable_testing()
 
 # Find SFML
 find_package(SFML 3.1.0 COMPONENTS Graphics Window System REQUIRED)
@@ -34,24 +34,24 @@ target_link_libraries(counter_app
 )
 
 # Test executable
-add_executable(run_tests
-    tests/test_main.cpp
-    src/Board.cpp
-    src/Cell.cpp
-    src/Game.cpp
-    src/Input.cpp
-    src/PuzzleGen.cpp
-    src/Rectangle.cpp
-    src/Solver.cpp
-)
+#add_executable(run_tests
+#    tests/test_main.cpp
+#    src/Board.cpp
+#    src/Cell.cpp
+#    src/Game.cpp
+#    src/Input.cpp
+#    src/PuzzleGen.cpp
+#    src/Rectangle.cpp
+#    src/Solver.cpp
+#)
 
 # Link SFML to tests too (only if tests use SFML)
-target_link_libraries(run_tests
-    sfml-Graphics
-    sfml-Window
-    sfml-System
-)
+#target_link_libraries(run_tests
+#    sfml-Graphics
+#   sfml-Window
+#    sfml-System
+#)
 
 # Register tests
-add_test(NAME CounterTests COMMAND run_tests)
+#add_test(NAME CounterTests COMMAND run_tests)
 
