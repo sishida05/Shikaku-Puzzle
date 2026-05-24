@@ -1,6 +1,8 @@
 #pragma once
 #include "Cell.h"
 #include <vector>
+#include <set>
+#include <utility>
 
 class Board {
 
@@ -9,6 +11,7 @@ public:
 
 private:
     int grid[GRID_SIZE][GRID_SIZE];
+    std::set<std::pair<int, int>> selectedCells;
 
 public:
    Board();
@@ -16,7 +19,9 @@ public:
     int get(int x, int y) const;
     void set(int x, int y, int value);
 
-   
+    void toggleSelectedCell(int x, int y);
+    void clearSelectedCells();
+    bool isSelected(int x, int y) const;
 };
 
 

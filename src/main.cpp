@@ -20,7 +20,7 @@ int main() {
         }
     }
 
-    optional<Vector2i> selectedCell;
+    optional<Vector2i> activeCell;
 
     // Font
     Font font("arial.ttf");
@@ -39,26 +39,24 @@ int main() {
                 int y = mouse.y / CELL_SIZE;
 
                 if (x >= 0 && x < GRID_SIZE && y >= 0 && y < GRID_SIZE) {
-                    selectedCell = Vector2i(x, y);
+                    board.toggleSelectedCell(x, y);
+                    activeCell = Vector2i(x, y);
                 }
             }
 
             // Key input → set number
-            if (event->is<Event::TextEntered>() && selectedCell) {
+            if (event->is<Event::TextEntered>() && activeCell) {
                 char c = static_cast<char>(event->getIf<Event::TextEntered>()->unicode);
 
-                int x = selectedCell->x;
-                int y = selectedCell->y;
-
-                if (c >= '0' && c <= '9' && selectedCell) {
-                    board.set(selectedCell->x, selectedCell->y, c - '0');
-                    }
+                if (c >= '0' && c <= '9') {
+                    board.set(activeCell->x, activeCell->y, c - '0');
                 }
+            }
 
-            // Backspace clears cell
+            // Backspace clears highlights
             if (event->is<Event::KeyPressed>()) {
-                if (event->getIf<Event::KeyPressed>()->code == Keyboard::Key::Backspace && selectedCell) {
-                    board.set(selectedCell->x, selectedCell->y, -1);
+                if (event->getIf<Event::KeyPressed>()->code == Keyboard::Key::Backspace) {
+                    board.clearSelectedCells();
                 }
             }
         }
@@ -72,7 +70,7 @@ int main() {
                 RectangleShape cell(Vector2f(CELL_SIZE - 2, CELL_SIZE - 2));
                 cell.setPosition(Vector2f(x * CELL_SIZE + 1, y * CELL_SIZE + 1));
 
-                if (selectedCell && selectedCell->x == x && selectedCell->y == y)
+                if (board.isSelected(x, y))
                     cell.setFillColor(Color(200, 200, 255));
                 else
                     cell.setFillColor(Color::White);

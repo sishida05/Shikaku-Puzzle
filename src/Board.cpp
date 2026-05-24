@@ -22,3 +22,26 @@ void Board::set(int x, int y, int value) {
         grid[x][y] = value;
     }
 }
+
+void Board::toggleSelectedCell(int x, int y) {
+    if (x < 0 || x >= GRID_SIZE || y < 0 || y >= GRID_SIZE)
+        return;
+
+    auto key = std::make_pair(x, y);
+    if (selectedCells.count(key) > 0) {
+        selectedCells.erase(key);
+    } else {
+        selectedCells.insert(key);
+    }
+}
+
+void Board::clearSelectedCells() {
+    selectedCells.clear();
+}
+
+bool Board::isSelected(int x, int y) const {
+    if (x < 0 || x >= GRID_SIZE || y < 0 || y >= GRID_SIZE)
+        return false;
+
+    return selectedCells.count(std::make_pair(x, y)) > 0;
+}
