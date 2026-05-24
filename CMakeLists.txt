@@ -27,10 +27,10 @@ add_executable(counter_app
 )
 
 # Link SFML to main executable
-target_link_libraries(counter_app
-    sfml-Graphics
-    sfml-Window
-    sfml-System
+target_link_libraries(counter_app PRIVATE
+    SFML::Graphics
+    SFML::Window
+    SFML::System
 )
 
 # Test executable
@@ -47,9 +47,9 @@ target_link_libraries(counter_app
 
 # Link SFML to tests too (only if tests use SFML)
 #target_link_libraries(run_tests
-#    sfml-Graphics
-#   sfml-Window
-#    sfml-System
+#   SFML::Graphics
+#   SFML::Window
+#   SFML::System
 #)
 
 # Register tests
