@@ -6,25 +6,29 @@ using namespace std;
 
 int main() {
 
-    // Create a 200x200 window titled "SFML works!"
-    sf::RenderWindow window(sf::VideoMode({200, 200}), "SFML works!");
 
-    // Create a green circle shape with a radius of 100
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Test");
+    while (window.isOpen()) {}
 
-    // Main application loop
-    while (window.isOpen()) {
+    // // Create a 200x200 window titled "SFML works!"
+    // sf::RenderWindow window(sf::VideoMode({200, 200}), "SFML works!");
 
-        // Clear the window with a default color (black)
-        window.clear();
+    // // Create a green circle shape with a radius of 100
+    // sf::CircleShape shape(100.f);
+    // shape.setFillColor(sf::Color::Green);
 
-        // Draw the circle shape
-        window.draw(shape);
+    // // Main application loop
+    // while (window.isOpen()) {
 
-        // Display the contents of the window
-        window.display();
-    }
+    //     // Clear the window with a default color (black)
+    //     window.clear();
+
+    //     // Draw the circle shape
+    //     window.draw(shape);
+
+    //     // Display the contents of the window
+    //     window.display();
+    // }
 
 
     return 0;
