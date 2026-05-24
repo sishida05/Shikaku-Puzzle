@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Shikaku)
+project(Shikaku-Puzzle)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -9,13 +9,13 @@ set(SFML_DIR "C:/SFML/SFML-3.1.0/lib/cmake/SFML")
 #enable_testing()
 
 # Find SFML
-find_package(SFML 3.1.0 COMPONENTS Graphics Window System REQUIRED)
+#find_package(SFML 3.1.0 COMPONENTS Graphics Window System REQUIRED)
 
 # Include header files
-include_directories(src)
+target_include_directories(Shikaku-Puzzle PRIVATE src)
 
 # Main executable
-add_executable(counter_app
+add_executable(Shikaku-Puzzle
     src/main.cpp
     src/Board.cpp
     src/Cell.cpp
@@ -27,7 +27,7 @@ add_executable(counter_app
 )
 
 # Link SFML to main executable
-target_link_libraries(counter_app PRIVATE
+target_link_libraries(Shikaku-Puzzle PRIVATE
     SFML::Graphics
     SFML::Window
     SFML::System
@@ -54,7 +54,3 @@ target_link_libraries(counter_app PRIVATE
 
 # Register tests
 #add_test(NAME CounterTests COMMAND run_tests)
-
-# Include your headers
-target_include_directories(counter_app PRIVATE src)
-
