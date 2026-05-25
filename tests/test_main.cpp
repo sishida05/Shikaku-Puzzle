@@ -1,31 +1,44 @@
 #include <iostream>
 #include <cassert>
-#include "../src/Game.h"
+#include "../src/Board.h"
 using namespace std;
 
 // TODO: Add tests for your const/side-effect-free functions first
 // These are the easiest to test (see lecture notes)
 
-void test_board_initialization() {
-    // TODO: Create a Board and verify initial state
-    // Board board(10, 10);
-    // assert(board.getRows() == 10);
-    // assert(board.getCols() == 10);
-    // assert(board.isInside(11,11) == false);
-   cout << "test_board_initialization: TODO" <<endl;
+void testBoardInput() {
+     // Board selection test
+    Board board;
+    assert(board.get(0, 0) == -1); // Initially empty
+    board.set(0, 0, 5);
+    assert(board.get(0, 0) == 5); // Value should be updated
+}
+void testBoardSelection() {
+    Board board;
+    assert(!board.isSelected(1, 1)); // Initially not selected
+    board.toggleSelectedCell(1, 1);
+    assert(board.isSelected(1, 1)); // Should be selected
+    board.toggleSelectedCell(1, 1);
+    assert(!board.isSelected(1, 1)); // Should be deselected
 }
 
-void test_is_solvable() {
-    // TODO: Tests whether a given puzzle is solvable
-   cout << "test_is_solvable: TODO" <<endl;
+void testBoardClearSelection() {
+    Board board;
+    board.toggleSelectedCell(2, 2);
+    board.toggleSelectedCell(3, 3);
+    assert(board.isSelected(2, 2));
+    assert(board.isSelected(3, 3));
+    board.clearSelectedCells();
+    assert(!board.isSelected(2, 2));
+    assert(!board.isSelected(3, 3));
 }
 
 int main() {
-   cout << "Running tests..." <<endl;
+    
+    testBoardInput();
+    testBoardSelection();
+    testBoardClearSelection();
 
-    test_board_initialization();
-    test_is_solvable();
-
-   cout << "\nAll tests completed." <<endl;
+    cout << "All tests passed!" << endl;
     return 0;
 }
